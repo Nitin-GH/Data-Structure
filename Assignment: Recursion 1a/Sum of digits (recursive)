@@ -1,0 +1,26 @@
+Sum of digits (recursive)
+
+Write a recursive function that returns the sum of the digits of a given integer.
+Sample Input :
+
+12345
+
+Sample Output :
+
+15
+
+__________________________________________________________________________________________________________________
+
+
+public class solution {
+
+	public static int sumOfDigits(int input){
+
+      if(input==0){
+        return 0;
+      }
+      int rem=input%10;
+      int total=rem+sumOfDigits(input/10);
+	  return total;
+	}
+}
