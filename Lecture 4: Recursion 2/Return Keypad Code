@@ -1,0 +1,115 @@
+Return Keypad Code
+
+Given an integer n, using phone keypad find out all the possible strings that can be made using digits of input n.
+Return empty string for numbers 0 and 1.
+Note : The order of strings are not important.
+Input Format :
+
+Integer n
+
+Output Format :
+
+All possible strings in different lines
+
+Constraints :
+1 <= n <= 10^6
+Sample Input:
+
+23
+
+Sample Output:
+
+ad
+ae
+af
+bd
+be
+bf
+cd
+ce
+cf
+______________________________________________________________________________________________________________
+
+public class solution {
+
+	public static void printKeypad(int input){
+		
+        String out[] = keypad(input);
+        for(int i=0;i<out.length;i++)
+        {
+            System.out.println(out[i]);
+        }
+    }
+    
+    
+        public static String[] keypad(int n){
+		// Write your code here
+    if(n <= 1)
+    {
+        String num[] = {""};
+        return num;
+    }
+        String val[] = value(n%10);
+        String smallans[] = keypad(n/10);
+        String output[] = new String[val.length*smallans.length];
+        int k=0;
+        for(int i=0;i<smallans.length;i++)
+        {
+            for(int j=0;j<val.length;j++)
+            {
+                output[k] = smallans[i]+val[j];
+                k++;
+            }
+        }
+        return output;
+	}
+    
+    public static String[] value(int n)
+    {
+        if(n<=1 || n>9)
+        {
+            String output[] = {""};
+            return output;
+        }
+       if(n == 2)
+      {
+        String output[]={"a","b","c"};
+          return output;
+      }
+	  else if(n == 3)
+      {
+        String output[]={"d","e","f"};
+          return output;
+      }
+      else if(n == 4)
+      {
+        String output[]={"g","h","i"};
+          return output;
+      }
+      else if(n == 5)
+      {
+        String output[]={"j","k","l"};
+          return output;
+      }
+      else if(n == 6)
+      {
+        String output[]={"m","n","o"};
+          return output;
+      }
+      else if(n == 7)
+      {
+        String output[]={"p","q","r","s"};
+          return output;
+      }
+      else if(n == 8)
+      {
+        String output[]={"t","u","v"};
+          return output;
+      }
+      else
+      {
+        String output[]={"w","x","y","z"};
+          return output;
+      }
+    }
+        }
