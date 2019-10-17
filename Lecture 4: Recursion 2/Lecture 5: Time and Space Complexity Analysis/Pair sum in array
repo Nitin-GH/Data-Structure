@@ -58,7 +58,9 @@ public class PairSum{
             end--;
           }
         }*/
-
+      	//worst solution 
+      	//in the question it is mentioned that print elements in the ordered way
+      	//that's why we sorted elements
       	Arrays.sort(arr);
       	for(int i=0;i<arr.length;i++){
           for(int j=i+1;j<arr.length;j++){
